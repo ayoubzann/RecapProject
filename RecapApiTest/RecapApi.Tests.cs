@@ -19,9 +19,6 @@ public class RecapApiTests
         //Arrange
         var response = await _client.GetAsync("http://localhost:5161/Recap");
         
-        //Act
-        
-
         //Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
