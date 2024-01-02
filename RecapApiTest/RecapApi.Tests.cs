@@ -22,4 +22,17 @@ public class RecapApiTests
         //Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
+
+    [Fact]
+    public async Task GetRequestReturnsHelloWorld()
+    {
+        //Arrange
+        var response = await _client.GetAsync("http://localhost:5161/Recap");
+        response.EnsureSuccessStatusCode();
+        
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        content.Should().Be("Hello World");
+    }
 }
